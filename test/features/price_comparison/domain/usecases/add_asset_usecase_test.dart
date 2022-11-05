@@ -1,6 +1,5 @@
 import 'package:asset_arbitrage/core/errors/failure.dart';
 import 'package:asset_arbitrage/core/usecases/param_types.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset_entity.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/repositories/asset_repository.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/usecases/add_asset_usecase.dart';
 import 'package:dartz/dartz.dart';

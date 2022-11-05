@@ -1,12 +1,10 @@
 import 'package:asset_arbitrage/core/errors/failure.dart';
-import 'package:asset_arbitrage/core/errors/not_found_entity_failure.dart';
 import 'package:asset_arbitrage/core/operation_type_enum.dart';
-import 'package:asset_arbitrage/core/usecases/param_types.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset_entity.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset_offer_entity.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/entities/currency_entity.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/repositories/asset_offer_repository.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/usecases/get_asset_offer_by_id_usecase.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/usecases/get_asset_offers._usecase.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/usecases/get_asset_offers_usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -22,7 +20,12 @@ void main() {
 
   setUp(() {
     id = '1';
-    assetOffer = const AssetOfferEntity(asset: AssetEntity(name: 'Eager', id: '1'), operation: OperationTypeEnum.buy, price: 10.0, quantity: 1.0);
+    assetOffer = const AssetOfferEntity(
+        asset: AssetEntity(name: 'Eager', id: '1'),
+        operation: OperationTypeEnum.buy,
+        price: 10.0,
+        quantity: 1.0,
+        currency: CurrencyEntity(name: 'Dollar', symbol: 'USDT'));
     assetsList = [assetOffer];
     repository = MockRepository();
     usecase = GetAssetOffersUsecase(repository);

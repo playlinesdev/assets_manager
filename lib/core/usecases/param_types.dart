@@ -1,4 +1,5 @@
 import 'package:asset_arbitrage/core/operation_type_enum.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/entities/currency_entity.dart';
 import 'package:equatable/equatable.dart';
 
 class NoParams extends Equatable {
@@ -21,8 +22,9 @@ class AssetOfferParams extends Equatable {
   final double price;
   final OperationTypeEnum operation;
   final double quantity;
+  final CurrencyEntity currency;
 
-  const AssetOfferParams({required this.assetId, required this.operation, required this.price, required this.quantity});
+  const AssetOfferParams({required this.assetId, required this.operation, required this.price, required this.quantity, required this.currency});
 
   @override
   List<Object?> get props => [price, operation, quantity];
@@ -35,4 +37,12 @@ class AssetsFilterParams extends Equatable {
 
   @override
   List<Object?> get props => [id, name];
+}
+
+class CurrencyFilterParams extends Equatable {
+  final String? name;
+  final String? symbol;
+  const CurrencyFilterParams({this.name, this.symbol});
+  @override
+  List<Object?> get props => [];
 }
