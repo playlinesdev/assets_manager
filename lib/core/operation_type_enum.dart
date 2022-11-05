@@ -1,0 +1,1 @@
+enum OperationTypeEnum { buy, sell }
