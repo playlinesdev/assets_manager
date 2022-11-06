@@ -1,7 +1,7 @@
 import 'package:asset_arbitrage/core/errors/failure.dart';
-import 'package:asset_arbitrage/core/operation_type_enum.dart';
+import 'package:asset_arbitrage/core/operation_type.dart';
 import 'package:asset_arbitrage/core/usecases/param_types.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/entities/currency_entity.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/entities/currency.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/repositories/asset_offer_repository.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/usecases/add_asset_offer_usecase.dart';
 import 'package:dartz/dartz.dart';
@@ -17,7 +17,7 @@ void main() {
 
   setUp(() {
     assetOfferParams = const AssetOfferParams(
-        assetId: '1', operation: OperationTypeEnum.buy, price: 10.0, quantity: 1.0, currency: CurrencyEntity(name: 'Dollar', symbol: 'USDT'));
+        assetId: '1', operation: OperationType.buy, price: 10.0, quantity: 1.0, currency: Currency(name: 'Dollar', symbol: 'USDT'));
     repository = MockRepository();
     usecase = AddAssetOfferUsecase(repository);
   });

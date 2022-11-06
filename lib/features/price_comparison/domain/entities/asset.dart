@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-class AssetEntity extends Equatable {
+class Asset extends Equatable {
   final String id;
   final String name;
-  const AssetEntity({required this.name, required this.id});
+  const Asset({required this.name, required this.id});
 
   @override
   List<Object?> get props => [id, name];

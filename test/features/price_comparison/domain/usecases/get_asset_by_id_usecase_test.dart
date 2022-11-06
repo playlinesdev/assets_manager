@@ -1,6 +1,6 @@
 import 'package:asset_arbitrage/core/errors/failure.dart';
 import 'package:asset_arbitrage/core/errors/not_found_entity_failure.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset_entity.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/repositories/asset_repository.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/usecases/get_asset_by_id_usecase.dart';
 import 'package:dartz/dartz.dart';
@@ -20,17 +20,17 @@ void main() {
 
   test('Should find an asset by it\'s id', () async {
     String id = '1';
-    when(() => repository.getAssetById(id)).thenAnswer((invocation) async => const Right<Failure, AssetEntity>(AssetEntity(name: 'Eager', id: '1')));
+    when(() => repository.getAssetById(id)).thenAnswer((invocation) async => const Right<Failure, Asset>(Asset(name: 'Eager', id: '1')));
 
     var response = await usecase(id);
 
-    expect(response, const Right(AssetEntity(name: 'Eager', id: '1')));
+    expect(response, const Right(Asset(name: 'Eager', id: '1')));
     verify(() => repository.getAssetById(id)).called(1);
   });
 
   test('Should return a Not Found Entity', () async {
     String id = '1';
-    when(() => repository.getAssetById(id)).thenAnswer((invocation) async => Left<Failure, AssetEntity>(NotFoundEntityFailure()));
+    when(() => repository.getAssetById(id)).thenAnswer((invocation) async => Left<Failure, Asset>(NotFoundEntityFailure()));
 
     var response = await usecase(id);
 

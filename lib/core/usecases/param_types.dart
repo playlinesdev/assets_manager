@@ -1,5 +1,5 @@
-import 'package:asset_arbitrage/core/operation_type_enum.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/entities/currency_entity.dart';
+import 'package:asset_arbitrage/core/operation_type.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/entities/currency.dart';
 import 'package:equatable/equatable.dart';
 
 class NoParams extends Equatable {
@@ -20,9 +20,9 @@ class AssetParams extends Equatable {
 class AssetOfferParams extends Equatable {
   final String assetId;
   final double price;
-  final OperationTypeEnum operation;
+  final OperationType operation;
   final double quantity;
-  final CurrencyEntity currency;
+  final Currency currency;
 
   const AssetOfferParams({required this.assetId, required this.operation, required this.price, required this.quantity, required this.currency});
 

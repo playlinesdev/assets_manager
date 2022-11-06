@@ -1,6 +1,6 @@
 import 'package:asset_arbitrage/core/errors/failure.dart';
 import 'package:asset_arbitrage/core/usecases/param_types.dart';
-import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset_entity.dart';
+import 'package:asset_arbitrage/features/price_comparison/domain/entities/asset.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/repositories/asset_repository.dart';
 import 'package:asset_arbitrage/features/price_comparison/domain/usecases/list_assets_with_filter_usecase.dart';
 import 'package:dartz/dartz.dart';
@@ -12,12 +12,12 @@ class MockRepository extends Mock implements IAssetRepository {}
 void main() {
   late IAssetRepository repository;
   late ListAssetsWithFilterUsecase usecase;
-  late AssetEntity eager;
-  late AssetEntity rooster;
+  late Asset eager;
+  late Asset rooster;
 
   setUp(() {
-    eager = const AssetEntity(name: 'Eager', id: '1');
-    rooster = const AssetEntity(name: 'Rooster', id: '2');
+    eager = const Asset(name: 'Eager', id: '1');
+    rooster = const Asset(name: 'Rooster', id: '2');
     repository = MockRepository();
     usecase = ListAssetsWithFilterUsecase(repository);
   });
@@ -26,11 +26,11 @@ void main() {
     var list1 = [rooster];
     var list2 = [eager];
     var listFull = [eager, rooster];
-    var listEmpty = <AssetEntity>[];
-    when(() => repository.getAssetsByFilter(id: '1')).thenAnswer((invocation) async => Right<Failure, List<AssetEntity>>(list2));
-    when(() => repository.getAssetsByFilter(name: 'Rooster')).thenAnswer((invocation) async => Right<Failure, List<AssetEntity>>(list1));
-    when(() => repository.getAssetsByFilter(name: 'er')).thenAnswer((invocation) async => Right<Failure, List<AssetEntity>>(listFull));
-    when(() => repository.getAssetsByFilter(name: 'abc')).thenAnswer((invocation) async => Right<Failure, List<AssetEntity>>(listEmpty));
+    var listEmpty = <Asset>[];
+    when(() => repository.getAssetsByFilter(id: '1')).thenAnswer((invocation) async => Right<Failure, List<Asset>>(list2));
+    when(() => repository.getAssetsByFilter(name: 'Rooster')).thenAnswer((invocation) async => Right<Failure, List<Asset>>(list1));
+    when(() => repository.getAssetsByFilter(name: 'er')).thenAnswer((invocation) async => Right<Failure, List<Asset>>(listFull));
+    when(() => repository.getAssetsByFilter(name: 'abc')).thenAnswer((invocation) async => Right<Failure, List<Asset>>(listEmpty));
 
     var response = await usecase(const AssetsFilterParams(name: 'Rooster'));
 
