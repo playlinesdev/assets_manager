@@ -7,10 +7,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockRepository extends Mock implements IAssetRepository {}
+class MockRepository extends Mock implements IAssetCrudRepository {}
 
 void main() {
-  late IAssetRepository repository;
+  late IAssetCrudRepository repository;
   late GetAssetByIdUsecase usecase;
 
   setUp(() {

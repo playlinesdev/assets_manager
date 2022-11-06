@@ -6,7 +6,7 @@ import 'package:asset_arbitrage/features/price_comparison/domain/repositories/cu
 import 'package:dartz/dartz.dart';
 
 class ListCurrenciesByFilterUsecase implements Usecase<List<Currency>, CurrencyFilterParams> {
-  final ICurrencyRepository repository;
+  final ICurrencyCrudRepository repository;
   ListCurrenciesByFilterUsecase(this.repository);
 
   @override

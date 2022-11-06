@@ -4,7 +4,7 @@ import 'package:asset_arbitrage/features/price_comparison/domain/repositories/as
 import 'package:dartz/dartz.dart';
 
 class RemoveAssetUsecase implements Usecase<bool, String> {
-  final IAssetRepository repository;
+  final IAssetCrudRepository repository;
   const RemoveAssetUsecase(this.repository);
 
   @override

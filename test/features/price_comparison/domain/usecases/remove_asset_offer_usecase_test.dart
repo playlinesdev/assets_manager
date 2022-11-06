@@ -5,11 +5,11 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockRepository extends Mock implements IAssetOfferRepository {}
+class MockRepository extends Mock implements IAssetOfferCrudRepository {}
 
 void main() {
   late String id;
-  late IAssetOfferRepository repository;
+  late IAssetOfferCrudRepository repository;
   late RemoveAssetOfferUsecase usecase;
 
   setUp(() {

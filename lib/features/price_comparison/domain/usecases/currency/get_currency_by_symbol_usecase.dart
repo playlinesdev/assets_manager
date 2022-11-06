@@ -5,7 +5,7 @@ import 'package:asset_arbitrage/features/price_comparison/domain/repositories/cu
 import 'package:dartz/dartz.dart';
 
 class GetCurrencyBySymbolUsecase implements Usecase<Currency, String> {
-  final ICurrencyRepository repository;
+  final ICurrencyCrudRepository repository;
   GetCurrencyBySymbolUsecase(this.repository);
 
   @override

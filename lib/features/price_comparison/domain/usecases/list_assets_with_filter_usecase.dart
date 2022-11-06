@@ -6,7 +6,7 @@ import 'package:asset_arbitrage/features/price_comparison/domain/repositories/as
 import 'package:dartz/dartz.dart';
 
 class ListAssetsWithFilterUsecase implements Usecase<List<Asset>, AssetsFilterParams> {
-  final IAssetRepository repository;
+  final IAssetCrudRepository repository;
 
   const ListAssetsWithFilterUsecase(this.repository);
 

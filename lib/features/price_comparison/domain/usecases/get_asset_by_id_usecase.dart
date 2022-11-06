@@ -5,7 +5,7 @@ import 'package:asset_arbitrage/features/price_comparison/domain/repositories/as
 import 'package:dartz/dartz.dart';
 
 class GetAssetByIdUsecase implements Usecase<Asset, String> {
-  final IAssetRepository repository;
+  final IAssetCrudRepository repository;
   const GetAssetByIdUsecase(this.repository);
 
   @override
